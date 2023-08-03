@@ -2,6 +2,7 @@ package learn.labs.test;
 
 import learn.labs.test.generator.SimpleDisplayNameGenerator;
 import org.junit.jupiter.api.*;
+import org.opentest4j.TestAbortedException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -63,5 +64,23 @@ public class CalculatorTest {
     @Disabled
     public void comingsoonTest(){
 
+    }
+
+    @Test
+    public void testAborted(){
+        var profile = System.getenv("PROFILE");
+        // How to change Environment
+        // 1. goto Run / Debug Configuration
+        // 2. chose Edit Configuration
+        // 3. In Environment Variables -> Edit Environment Variables (Shift + Enter)
+        // 4. Add new
+        // 5. Name : PROFILE, Value : DEV
+        // 6. Run Test
+
+        if(!"DEV".equals(profile)){
+            throw new TestAbortedException("Test dibatalkan karena env bukan DEV");
+        }
+
+        // Unit test for dev
     }
 }
