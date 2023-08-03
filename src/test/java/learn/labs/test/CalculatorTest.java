@@ -1,6 +1,7 @@
 package learn.labs.test;
 
 import learn.labs.test.generator.SimpleDisplayNameGenerator;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.Test;
@@ -37,6 +38,12 @@ public class CalculatorTest {
         assertThrows(IllegalArgumentException.class, () -> {
             calculator.devide(100, 0);
         });
+
+    }
+
+    @Test
+    @Disabled
+    public void comingsoonTest(){
 
     }
 }
