@@ -1,13 +1,19 @@
 package learn.labs.test;
 
+import learn.labs.test.generator.SimpleDisplayNameGenerator;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+@DisplayNameGeneration(SimpleDisplayNameGenerator.class)
+//@DisplayName("Test untuk calculator class")
 public class CalculatorTest {
 
     private final Calculator calculator = new Calculator();
 
     @Test
+    //@DisplayName("Test skenario sukses untuk method add(integer, integer) ")
     public void testAddSuccess(){
         var result = calculator.add(10, 10);
 
