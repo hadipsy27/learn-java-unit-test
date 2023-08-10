@@ -46,4 +46,16 @@ public class PersonServiceTest {
         Assertions.assertEquals("hadi", person.getId());
         Assertions.assertEquals("Hadi", person.getName());
     }
+
+    @Test
+    void testRegisterSuccess() {
+        var person = personService.register("Hadi");
+        Assertions.assertNotNull(person);
+        Assertions.assertEquals("Hadi", person.getName());
+        Assertions.assertNotNull(person.getId());
+
+        // Wajib!! membuat verifikasi apakah method yg bersangkutan ke db benar-benar di panggil
+        // dengan adanya verifikasi supaya meyakinkan bawah code yg dibuat benar sesuai dengan yg di harapkan
+        Mockito.verify(personRepository, Mockito.times(1)).insert(new Person(person.getId(), "Hadi"));
+    }
 }
